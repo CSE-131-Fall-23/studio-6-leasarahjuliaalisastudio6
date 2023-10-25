@@ -14,7 +14,11 @@ public class RecursiveMethods {
 	public static double geometricSum(int n) {
 		
 			// FIXME compute the geometric sum for the first n terms recursively
+		if (n==0) {
 			return 0;
+		}
+		
+		return geometricSum(n-1) + (1.0/Math.pow(2, n));
 		
 	}
 
@@ -41,11 +45,24 @@ public class RecursiveMethods {
 	 * @param array the array to create a reverse of, not to be mutated
 	 * @return an array with the same data as the input but it reverse order
 	 */
+	
+	public static int[] helperMethod(int [] array, int position) {
+		
+		if (position == array.length/2) {
+		return array;
+		}
+		/// do something here
+		int tempPosition = array[position];
+		array[position]= array[array.length -1 -position];
+		array[array.length -1 - position] = tempPosition;
+	
+		return helperMethod(array, position + 1);
+	}
+	
 	public static int[] toReversed(int[] array) {
-		
+			
 			// FIXME create a helper method that can recursively reverse the given array
-			return new int[0];
-		
+			return helperMethod(array, 0);
 	}
 
 	/**

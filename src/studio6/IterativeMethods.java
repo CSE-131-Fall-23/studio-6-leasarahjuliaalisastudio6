@@ -14,10 +14,12 @@ public class IterativeMethods {
 	 */
 	public static double geometricSum(int n) {
 		double sum = 0.0;
+		double geometricSum=0; 
 		for (int power = 1; power <= n; ++power) {
-			sum = sum + Math.pow(0.5, power);
+			//sum = sum + Math.pow(0.5, power);
+			 geometricSum = geometricSum + 1.0/Math.pow(2, power);
 		}
-		return sum;
+		return geometricSum;
 	}
 
 	/**
